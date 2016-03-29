@@ -22,7 +22,7 @@ public class Window{
     private(set) var title : String
     private var window : OpaquePointer
 
-    public init(title:String,width:Int,height:Int,bitsPerPixel:Int!=32,style:VideoStyle=VideoStyle.Default){
+    public init(title:String,width:Int,height:Int,bitsPerPixel:Int,style:VideoStyle){
       self.title = title
       self.width = width
       self.height = height
@@ -31,9 +31,14 @@ public class Window{
       window = sfRenderWindow_create(mode, title,style.rawValue,nil)
     }
 
-    public convenience init(title:String,width:Int,height:Int,style:[VideoStyle]){
-      self.init(title:title,width:width,height:height,bitsPerPixel:32,style:VideoStyle.Default)
+    public convenience init(title:String,width:Int,height:Int,style:VideoStyle){
+        self.init(title:title,width:width,height:height,bitsPerPixel:32,style:style)
     }
+
+    public convenience init(title:String,width:Int,height:Int){
+      self.init(title:title,width:width,height:height,bitsPerPixel:32,style:.Default)
+    }
+
     public func isOpen()->Bool{
       return Bool(NSNumber(int:sfRenderWindow_isOpen(window)))
     }
