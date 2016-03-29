@@ -44,7 +44,7 @@ public class Window{
     private(set) var bitsPerPixel : Int
     private(set) var title : String
     private var window : OpaquePointer
-    lazy var keyPressed
+    
     public init(title:String,width:Int,height:Int,bitsPerPixel:Int,style:VideoStyle){
       self.title = title
       self.width = width
