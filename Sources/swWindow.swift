@@ -1,5 +1,5 @@
 // COPYRIGHT (c) 2016 Antoine Garcia
-// 
+//
 // MIT License
 //
 // Permission is hereby granted, free of charge, to any person obtaining
@@ -44,7 +44,7 @@ public class Window{
     private(set) var bitsPerPixel : Int
     private(set) var title : String
     private var window : OpaquePointer
-
+    lazy var keyPressed
     public init(title:String,width:Int,height:Int,bitsPerPixel:Int,style:VideoStyle){
       self.title = title
       self.width = width
@@ -64,5 +64,15 @@ public class Window{
 
     public func isOpen()->Bool{
       return Bool(NSNumber(int:sfRenderWindow_isOpen(window)))
+  }
+
+  public func close(){
+    sfRenderWindow_close(window)
+  }
+  public func keyPressed(completionHandler:(event:sfEvent)->Void){
+      var eventCatch : sfEvent = sfEvent()
+      while(sfRenderWindow_pollEvent(window,&eventCatch) == 1){
+          completionHandler(event:eventCatch)
+      }
   }
 }
