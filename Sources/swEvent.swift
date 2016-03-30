@@ -22,11 +22,24 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import swsfml_graphics
 import swsfml_system
+import swsfml_window
 
-public enum eventType{
+public extension sfEvent{
+  public var isClosed : Bool {
+    return type == sfEvtClosed
+  }
 
-}
-public class swEvent {
+  public var isKeyPressed:Bool{
+    return type == sfEvtKeyPressed
+  }
 
+  public var isLostFocus : Bool {
+    return type == sfEvtLostFocus
+  }
+
+  public var isGainedFocus : Bool {
+    return type == sfEvtGainedFocus
+  }
 }

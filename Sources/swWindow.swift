@@ -79,10 +79,10 @@ public class Window{
     sfRenderWindow_display(window)
   }
 
-  public func keyPressed(completionHandler:(event:sfEvent)->Void){
-      var eventCatch : sfEvent = sfEvent()
-      while(sfRenderWindow_pollEvent(window,&eventCatch) == 1){
+   public func keyPressed(completionHandler:(event:sfEvent)->Void){
+       var eventCatch : sfEvent = sfEvent()
+       while(sfRenderWindow_pollEvent(window,&eventCatch) == 1){
           completionHandler(event:eventCatch)
-      }
-  }
+       }
+   }
 }
