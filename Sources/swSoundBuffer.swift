@@ -1,4 +1,4 @@
-// COPYRIGHT (c) 2016 Antoine Garcia
+// COPYRIGHT (c) 2016 Nicolas Charvoz
 //
 // MIT License
 //
@@ -21,18 +21,19 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import swsfml_graphics
-import swsfml_system
-import swsfml_window
+import swsfml_audio
 
-enum TextureError : ErrorProtocol{
+enum SoundBufferError : ErrorProtocol {
   case FileNotExist
 }
-public class Texture {
-  var texture : OpaquePointer = nil
 
-  public init(file:String) throws{
-    texture = sfTexture_createFromFile(file,nil)
-    guard texture != nil else{throw TextureError.FileNotExist}
+public class SoundBuffer {
+
+  private var buffer : OpaquePointer = nil
+
+  public init(path: String) throws{
+    buffer = sfSoundBuffer_createFromFile(path)
+    guard buffer != nil else{throw SoundBufferError.FileNotExist}
   }
+
 }

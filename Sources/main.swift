@@ -1,7 +1,13 @@
 let window = Window(title:"Test",width:200,height:200)
-let texture = try! Texture(path:"coucou.png")
-let music = try! Music(path:"~/Téléchargements/0933.ogg")
-music.play()
+
+do {
+    let music = try Music(path:"../0933.ogg")
+    music.play()
+  }
+  catch _ {
+    print("music is not loaded")
+  }
+
 
 while window.isOpen(){
   window.keyPressed(){key in
