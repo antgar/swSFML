@@ -31,8 +31,8 @@ enum TextureError : ErrorProtocol{
 public class Texture {
   var texture : OpaquePointer = nil
 
-  public init(path:String) throws{
-    texture = sfTexture_createFromFile(path,nil)
+  public init(file:String) throws{
+    texture = sfTexture_createFromFile(file,nil)
     guard texture != nil else{throw TextureError.FileNotExist}
   }
 }
