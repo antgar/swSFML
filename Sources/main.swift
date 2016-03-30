@@ -2,7 +2,9 @@ let window = Window(title:"Test",width:200,height:200)
 let music: Music?
 
 do {
-    music = try Music(path:"../0933.ogg")
+    music = try Music(path:"../0477.ogg")
+    music!.setLoop(false)
+    music!.setVolume(0.3)
     music!.play()
   }
   catch _ {

@@ -40,6 +40,54 @@ public class Music {
     sfMusic_play(music)
   }
 
+  public func pause() {
+    sfMusic_pause(music)
+  }
+
+  public func stop() {
+    sfMusic_stop(music)
+  }
+
+  public func getChannelCount() -> Int {
+    return Int(sfMusic_getChannelCount(music))
+  }
+
+  public func getSampleRate() -> Int {
+    return Int(sfMusic_getSampleRate(music))
+  }
+
+  public func setPitch(pitch: Float) {
+    sfMusic_setPitch(music, pitch)
+  }
+
+  public func setVolume(volume: Float) {
+    sfMusic_setVolume(music, volume)
+  }
+
+  public func setRelativeToListener(pos: Bool) {
+    if (pos) {
+      sfMusic_setRelativeToListener(music, sfTrue)
+    } else {
+      sfMusic_setRelativeToListener(music, sfFalse)
+    }
+  }
+
+  public func setLoop(loop: Bool) {
+    if (loop) {
+      sfMusic_setLoop(music, sfTrue)
+    } else {
+      sfMusic_setLoop(music, sfFalse)
+    }
+  }
+
+  public func getLoop() -> Bool {
+    if (sfMusic_getLoop(music) == sfTrue) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   deinit {
     sfMusic_destroy(music)
   }
