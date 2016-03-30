@@ -85,4 +85,8 @@ public class Window{
           completionHandler(event:eventCatch)
        }
    }
+
+   deinit{
+     sfWindow_destroy(window)
+   }
 }
