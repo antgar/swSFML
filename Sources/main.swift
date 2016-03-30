@@ -18,7 +18,7 @@ while window.isOpen(){
     else if key.isKeyUp{
       print("KEY UP")
     }
-    window.clear()
-    window.display()
   }
+  window.clear()
+  window.display()
 }
