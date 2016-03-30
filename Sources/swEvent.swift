@@ -68,4 +68,8 @@ public extension sfEvent{
   public var isMouseLeftButtonPressed : Bool {
     return isMouseButtonPressed && mouseButton.button == sfMouseLeft
   }
+
+  public var isMouseMiddleButton : Bool {
+    return isMouseButtonPressed && mouseButton.button == sfMouseMiddle
+  }
 }

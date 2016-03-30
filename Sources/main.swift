@@ -4,5 +4,10 @@ while window.isOpen(){
     if key.isClosed{
       window.close()
     }
+    else if key.isKeyUp{
+      print("KEY UP")
+    }
+    window.clear()
+    window.display()
   }
 }
