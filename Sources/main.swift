@@ -1,8 +1,9 @@
 let window = Window(title:"Test",width:200,height:200)
+let music: Music?
 
 do {
-    let music = try Music(path:"../0933.ogg")
-    music.play()
+    music = try Music(path:"../0933.ogg")
+    music!.play()
   }
   catch _ {
     print("music is not loaded")
