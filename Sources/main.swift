@@ -1,4 +1,15 @@
 let window = Window(title:"Test",width:200,height:200)
+let music: Music?
+
+do {
+    music = try Music(path:"../0933.ogg")
+    music!.play()
+  }
+  catch _ {
+    print("music is not loaded")
+  }
+
+
 while window.isOpen(){
   window.keyPressed(){key in
     if key.isClosed{
