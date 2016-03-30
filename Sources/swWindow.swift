@@ -44,7 +44,7 @@ public class Window{
     private(set) var bitsPerPixel : Int
     private(set) var title : String
     private var window : OpaquePointer
-    
+
     public init(title:String,width:Int,height:Int,bitsPerPixel:Int,style:VideoStyle){
       self.title = title
       self.width = width
@@ -69,6 +69,16 @@ public class Window{
   public func close(){
     sfRenderWindow_close(window)
   }
+
+  public func clear(color:swColor=swColor.blackColor()){
+    let sfmlcolor = sfColor(r:UInt8(color.red),g:UInt8(color.green),b:UInt8(color.blue),a:UInt8(color.alpha))
+    sfRenderWindow_clear(window,sfmlcolor)
+  }
+
+  public func display(){
+    sfRenderWindow_display(window)
+  }
+
   public func keyPressed(completionHandler:(event:sfEvent)->Void){
       var eventCatch : sfEvent = sfEvent()
       while(sfRenderWindow_pollEvent(window,&eventCatch) == 1){
