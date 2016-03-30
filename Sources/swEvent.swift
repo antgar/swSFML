@@ -23,8 +23,6 @@
 
 import Foundation
 import swsfml_graphics
-import swsfml_system
-import swsfml_window
 
 public extension sfEvent{
   public var isClosed : Bool {
@@ -41,5 +39,33 @@ public extension sfEvent{
 
   public var isGainedFocus : Bool {
     return type == sfEvtGainedFocus
+  }
+
+  public var isKeyUp : Bool {
+    return isKeyPressed && key.code == sfKeyUp
+  }
+
+  public var isKeyDown : Bool {
+    return isKeyPressed && key.code == sfKeyDown
+  }
+
+  public var isKeyRight : Bool {
+    return isKeyPressed && key.code == sfKeyRight
+  }
+
+  public var isKeyLeft : Bool {
+    return isKeyPressed && key.code == sfKeyLeft
+  }
+
+  public var isMouseButtonPressed : Bool {
+    return type == sfEvtMouseButtonPressed
+  }
+
+  public var isMouseRightButtonPressed : Bool {
+    return isMouseButtonPressed && mouseButton.button == sfMouseRight
+  }
+
+  public var isMouseLeftButtonPressed : Bool {
+    return isMouseButtonPressed && mouseButton.button == sfMouseLeft
   }
 }
