@@ -22,22 +22,7 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
-import swsfml_graphics
-import swsfml_system
-import swsfml_window
 
-public struct Point{
-  var position :(Float,Float)
-  var normal : (Float,Float)
-  var color : swColor
-  var outlineColor : swColor
-}
-
-public  protocol ShapeProtocol{
- var points :[Point] {get set}
- func addPoint(x:Float,y:Float,color:swColor,outlineColor:swColor)
- func numberOfPoints()->Int
- func enableFill(enabled:Bool)
- func enableOutline(enabled:Bool)
- func getPointPosition(index:Int)->(Float,Float)
+public protocol renderTargetProtocol{
+  func clear(color:swColor)
 }

@@ -38,7 +38,7 @@ public struct VideoStyle: OptionSet{
   static let Default :VideoStyle = [Titlebar,Resize,Close]
 }
 
-public class Window{
+public class Window:renderTargetProtocol{
     private(set) var width : Int
     private(set) var height : Int
     private(set) var bitsPerPixel : Int
