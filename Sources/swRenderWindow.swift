@@ -85,8 +85,8 @@ public class swRenderWindow:RenderTarget{
        }
    }
    public func draw(drawable:Drawable){
-     if let circle = drawable as? CircleShape{
-      sfRenderWindow_drawShape(window,circle.circleShape,nil)
+     if let draw = drawable as? ShapeProtocol{
+      sfRenderWindow_drawShape(window,draw.shape,nil)
      }
    }
    deinit{

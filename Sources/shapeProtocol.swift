@@ -34,8 +34,16 @@ public struct Point{
 }
 
 public protocol ShapeProtocol:Transformable,Drawable{
+  var shape : OpaquePointer {get}
   var fillColor : sfColor {get set}
   var outlineColor : sfColor {get set}
+  var outlineThickness : Float {get set}
   func getPointCount()->Int
   subscript(index:Int)->(Float,Float){get}
+}
+
+extension ShapeProtocol{
+  func update(){ //Never Override this function !
+    sfShape_update(shape)
+  }
 }

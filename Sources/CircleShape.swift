@@ -25,81 +25,89 @@ import Foundation
 import swsfml_graphics
 
 public class CircleShape:ShapeProtocol{
-  private(set) var circleShape: OpaquePointer
+  public private(set) var shape: OpaquePointer
   public var position : (Float,Float) {
     get{
-      let vector = sfCircleShape_getPosition(circleShape)
+      let vector = sfCircleShape_getPosition(shape)
       return (vector.x,vector.y)
     }
     set{
       let vector = sfVector2f(x:newValue.0,y:newValue.1)
-      sfCircleShape_setPosition(circleShape,vector)
+      sfCircleShape_setPosition(shape,vector)
     }
   }
   public var rotation : Float{
     get{
-      return sfCircleShape_getRotation(circleShape)
+      return sfCircleShape_getRotation(shape)
     }set{
-      sfCircleShape_setRotation(circleShape,newValue)
+      sfCircleShape_setRotation(shape,newValue)
     }
   }
   public var scale :(Float,Float){
     get{
-      let vector = sfCircleShape_getPosition(circleShape)
+      let vector = sfCircleShape_getPosition(shape)
       return (vector.x,vector.y)
     }set{
       let vector = sfVector2f(x:newValue.0,y:newValue.1)
-      sfCircleShape_setScale(circleShape,vector)
+      sfCircleShape_setScale(shape,vector)
     }
   }
   public var origin : (Float,Float){
     get{
-      let vector = sfCircleShape_getPosition(circleShape)
+      let vector = sfCircleShape_getPosition(shape)
       return (vector.x,vector.y)
     }set{
       let vector = sfVector2f(x:newValue.0,y:newValue.1)
-      sfCircleShape_setOrigin(circleShape,vector)
+      sfCircleShape_setOrigin(shape,vector)
     }
   }
   public var fillColor : sfColor{
     get{
-      return sfCircleShape_getFillColor(circleShape)
+      return sfCircleShape_getFillColor(shape)
     }set{
-      sfCircleShape_setFillColor(circleShape,newValue)
+      sfCircleShape_setFillColor(shape,newValue)
     }
   }
   public var outlineColor : sfColor{
     get{
-      return sfCircleShape_getOutlineColor(circleShape)
+      return sfCircleShape_getOutlineColor(shape)
     }set{
-      sfCircleShape_setOutlineColor(circleShape,newValue)
+      sfCircleShape_setOutlineColor(shape,newValue)
+    }
+  }
+  public var outlineThickness : Float{
+    get{
+      return sfCircleShape_getOutlineThickness(shape)
+    }
+    set{
+      sfCircleShape_setOutlineThickness(shape,newValue)
     }
   }
    init(radius:Float){
-     circleShape = sfCircleShape_create()
-     sfCircleShape_setRadius(circleShape,radius)
+     shape = sfCircleShape_create()
+     sfCircleShape_setRadius(shape,radius)
   }
 
   //MARK: ShapeProtocol
   public func getPointCount()->Int{
-    return Int(sfCircleShape_getPointCount(circleShape))
+    return Int(sfCircleShape_getPointCount(shape))
   }
 
   public subscript(index:Int)->(Float,Float){
     get{
-      let vector = sfCircleShape_getPoint(circleShape,index)
+      let vector = sfCircleShape_getPoint(shape,index)
       return (vector.x,vector.y)
     }
   }
   public func move(offsetX:Float,offsetY:Float){
     let vector = sfVector2f(x:offsetX,y:offsetY)
-    sfCircleShape_move(circleShape,vector)
+    sfCircleShape_move(shape,vector)
   }
   public func rotate(angle:Float){
-    sfCircleShape_rotate(circleShape,angle)
+    sfCircleShape_rotate(shape,angle)
   }
   public func scale(factorX:Float,factorY:Float){
     let vector = sfVector2f(x:factorX,y:factorY)
-    sfCircleShape_scale(circleShape,vector)
+    sfCircleShape_scale(shape,vector)
   }
 }
