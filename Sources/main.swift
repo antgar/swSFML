@@ -1,6 +1,8 @@
+import swsfml_graphics
 let window = swRenderWindow(title:"Test",width:200,height:200)
 let music: Music?
-
+let circle = CircleShape(radius:100.0)
+circle.fillColor = sfGreen
 do {
     music = try Music(path:"../0477.ogg")
     music!.setLoop(false)
@@ -22,5 +24,6 @@ while window.isOpen(){
     }
   }
   window.clear()
+  window.draw(circle)
   window.display()
 }

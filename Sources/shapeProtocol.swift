@@ -29,12 +29,13 @@ import swsfml_window
 public struct Point{
   var position :(Float,Float)
   var normal : (Float,Float)
-  var color : swColor
-  var outlineColor : swColor
+  var color : sfColor
+  var outlineColor : sfColor
 }
 
 public protocol ShapeProtocol:Transformable,Drawable{
- var points :[Point] {get set}
- func getPointCount()->Int
- func getPoint(index:Int)->(Float,Float)
+  var fillColor : sfColor {get set}
+  var outlineColor : sfColor {get set}
+  func getPointCount()->Int
+  subscript(index:Int)->(Float,Float){get}
 }

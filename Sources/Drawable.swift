@@ -21,12 +21,8 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+import Foundation
+
 public protocol Drawable{
-  func setPosition(x:Float,y:Float)
-  func setRotation(angle:Float)
-  func setScale(x:Float,y:Float)
-  func setOrigin(origin:(Float,Float))
-  func move(offsetX:Float,offsetY:Float)
-  func rotate(angle:Float)
-  func scale(factorX:Float,factorY:Float)
+
 }

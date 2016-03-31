@@ -70,9 +70,8 @@ public class swRenderWindow:RenderTarget{
     sfRenderWindow_close(window)
   }
 
-  public func clear(color:swColor=swColor.blackColor()){
-    let sfmlcolor = sfColor(r:UInt8(color.red),g:UInt8(color.green),b:UInt8(color.blue),a:UInt8(color.alpha))
-    sfRenderWindow_clear(window,sfmlcolor)
+  public func clear(color:sfColor=sfColor.blackColor()){
+    sfRenderWindow_clear(window,color)
   }
 
   public func display(){
@@ -85,7 +84,11 @@ public class swRenderWindow:RenderTarget{
           completionHandler(event:eventCatch)
        }
    }
-
+   public func draw(drawable:Drawable){
+     if let circle = drawable as? CircleShape{
+      sfRenderWindow_drawShape(window,circle.circleShape,nil)
+     }
+   }
    deinit{
      sfWindow_destroy(window)
    }

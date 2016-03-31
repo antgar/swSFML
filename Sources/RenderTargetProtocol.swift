@@ -22,7 +22,8 @@
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 import Foundation
+import swsfml_graphics
 
 public protocol RenderTarget{
-  func clear(color:swColor)
+  func clear(color:sfColor)
 }

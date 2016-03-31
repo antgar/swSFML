@@ -23,33 +23,8 @@
 
 import swsfml_graphics
 
-public class swColor{
-  private(set) var red : Int
-  private(set) var green : Int
-  private(set) var  blue : Int
-  private(set) var  alpha : Int
-
-  public init(red:Int,green:Int,blue:Int,alpha:Int){
-      self.red = red
-      self.green = green
-      self.blue = blue
-      self.alpha = alpha
+public extension sfColor{
+  public static func blackColor()->sfColor{
+    return sfBlack
   }
-
-  public static func blackColor()->swColor{
-    return swColor(red:0,green:0,blue:0,alpha:255)
-  }
-
-  public static func redColor()->swColor{
-    return swColor(red:1,green:0,blue:0,alpha:255)
-  }
-
-  public static func blueColor()->swColor{
-    return swColor(red:0,green:0,blue:1,alpha:255)
-  }
-
-  public static func greenColor()->swColor{
-    return swColor(red:0,green:1,blue:0,alpha:255)
-  }
-  
 }
