@@ -33,7 +33,7 @@ public struct Point{
   var outlineColor : swColor
 }
 
-public  protocol ShapeProtocol{
+public protocol ShapeProtocol:Transformable{
  var points :[Point] {get set}
  func addPoint(x:Float,y:Float,color:swColor,outlineColor:swColor)
  func numberOfPoints()->Int
