@@ -1,4 +1,4 @@
-let window = Window(title:"Test",width:200,height:200)
+let window = swRenderWindow(title:"Test",width:200,height:200)
 let music: Music?
 
 do {
