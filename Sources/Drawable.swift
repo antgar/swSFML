@@ -21,20 +21,12 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import Foundation
-import swsfml_graphics
-import swsfml_system
-import swsfml_window
-
-public struct Point{
-  var position :(Float,Float)
-  var normal : (Float,Float)
-  var color : swColor
-  var outlineColor : swColor
-}
-
-public protocol ShapeProtocol:Transformable,Drawable{
- var points :[Point] {get set}
- func getPointCount()->Int
- func getPoint(index:Int)->(Float,Float)
+public protocol Drawable{
+  func setPosition(x:Float,y:Float)
+  func setRotation(angle:Float)
+  func setScale(x:Float,y:Float)
+  func setOrigin(origin:(Float,Float))
+  func move(offsetX:Float,offsetY:Float)
+  func rotate(angle:Float)
+  func scale(factorX:Float,factorY:Float)
 }
