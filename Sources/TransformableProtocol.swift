@@ -23,6 +23,12 @@
 
 import Foundation
 
-public protocol RenderTarget{
-  func clear(color:swColor)
+public protocol Transformable{
+  func setPosition(x:Float,y:Float)
+  func setRotation(angle:Float)
+  func setScale(x:Float,y:Float)
+  func setOrigin(origin:(Float,Float))
+  func move(offsetX:Float,offsetY:Float)
+  func rotate(angle:Float)
+  func scale(factorX:Float,factorY:Float)
 }
