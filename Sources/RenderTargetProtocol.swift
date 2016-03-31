@@ -23,6 +23,6 @@
 
 import Foundation
 
-public protocol renderTargetProtocol{
+public protocol RenderTargetProtocol{
   func clear(color:swColor)
 }
