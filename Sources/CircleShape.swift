@@ -93,11 +93,9 @@ public class CircleShape:ShapeProtocol{
     return Int(sfCircleShape_getPointCount(shape))
   }
 
-  public subscript(index:Int)->(Float,Float){
-    get{
+  public func getPoint(index:Int)->(Float,Float){
       let vector = sfCircleShape_getPoint(shape,index)
       return (vector.x,vector.y)
-    }
   }
   public func move(offsetX:Float,offsetY:Float){
     let vector = sfVector2f(x:offsetX,y:offsetY)

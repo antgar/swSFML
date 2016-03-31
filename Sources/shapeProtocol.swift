@@ -39,7 +39,7 @@ public protocol ShapeProtocol:Transformable,Drawable{
   var outlineColor : sfColor {get set}
   var outlineThickness : Float {get set}
   func getPointCount()->Int
-  subscript(index:Int)->(Float,Float){get}
+  func getPoint(index:Int)->(Float,Float)
 }
 
 extension ShapeProtocol{
