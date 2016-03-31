@@ -27,4 +27,10 @@ public extension sfColor{
   public static func blackColor()->sfColor{
     return sfBlack
   }
+  public static func greenColor()->sfColor{
+    return sfGreen
+  }
+  public static func redColor()->sfColor{
+    return sfRed
+  }
 }
