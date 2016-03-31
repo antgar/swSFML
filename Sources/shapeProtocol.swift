@@ -105,13 +105,13 @@ extension ShapeProtocol{
   }
   public func move(offsetX:Float,offsetY:Float){
     let vector = sfVector2f(x:offsetX,y:offsetY)
-    sfCircleShape_move(shape,vector)
+    sfShape_move(shape,vector)
   }
   public func rotate(angle:Float){
-    sfCircleShape_rotate(shape,angle)
+    sfShape_rotate(shape,angle)
   }
   public func scale(factorX:Float,factorY:Float){
     let vector = sfVector2f(x:factorX,y:factorY)
-    sfCircleShape_scale(shape,vector)
+    sfShape_scale(shape,vector)
   }
 }

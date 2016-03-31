@@ -4,6 +4,7 @@ let music: Music?
 var circle = CircleShape(radius:100.0)
 circle.fillColor = sfColor.greenColor()
 circle.outlineColor = sfColor.redColor()
+let custom = customShape()
 circle.outlineThickness = 10
 do {
     music = try Music(path:"../0477.ogg")
