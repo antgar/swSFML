@@ -83,11 +83,16 @@ public class CircleShape:ShapeProtocol{
       sfCircleShape_setOutlineThickness(shape,newValue)
     }
   }
+  
    init(radius:Float){
      shape = sfCircleShape_create()
      sfCircleShape_setRadius(shape,radius)
   }
-
+  init(radius:Float,points:Int){
+    shape = sfCircleShape_create()
+    sfCircleShape_setRadius(shape,radius)
+    sfCircleShape_setPointCount(shape,points)
+  }
   //MARK: ShapeProtocol
   public func getPointCount()->Int{
     return Int(sfCircleShape_getPointCount(shape))
