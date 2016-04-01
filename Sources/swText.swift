@@ -28,15 +28,15 @@ public struct TextStyle: OptionSet{
   public let rawValue : UInt32
   public init(rawValue: UInt32) { self.rawValue = rawValue }
 
-  static let Regular = VideoStyle(rawValue:0)
-  static let Bold = VideoStyle(rawValue:1 << 0)
-  static let Italic = VideoStyle(rawValue: 1 << 1)
-  static let Underlined = VideoStyle(rawValue: 1 << 2)
-  static let StrikeThrough = VideoStyle(rawValue:1 << 3)
+  static let Regular = TextStyle(rawValue:0)
+  static let Bold = TextStyle(rawValue:1 << 0)
+  static let Italic = TextStyle(rawValue: 1 << 1)
+  static let Underlined = TextStyle(rawValue: 1 << 2)
+  static let StrikeThrough = TextStyle(rawValue:1 << 3)
 }
 
 public class Text:Transformable,Drawable{
-  private var text : OpaquePointer
+  private(set) var text : OpaquePointer
   public var position :(Float,Float){
     get{
       let vector = sfText_getPosition(text)
@@ -50,7 +50,7 @@ public class Text:Transformable,Drawable{
     get{
       return sfText_getRotation(text)
     }set{
-      sfText_setRotation(text,rotation)
+      sfText_setRotation(text,newValue)
     }
   }
   public var scale :(Float,Float){
@@ -75,7 +75,7 @@ public class Text:Transformable,Drawable{
     get{
       return sfText_getColor(text)
     }set{
-      sfText_setColor(text,color)
+      sfText_setColor(text,newValue)
     }
   }
   public var style:TextStyle{
@@ -87,8 +87,9 @@ public class Text:Transformable,Drawable{
   }
   init(string:String,font:Font){
     text = sfText_create()
-    sfText_setString(text,string)
     sfText_setFont(text,font.font)
+    sfText_setString(text,string)
+    //sfText_setColor(text,sfColor.redColor())
   }
   public func move(offsetX:Float,offsetY:Float){
     let vector = sfVector2f(x:offsetX,y:offsetY)
