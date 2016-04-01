@@ -23,8 +23,10 @@
 
 import Foundation
 import swsfml_graphics
-
-public protocol RenderTarget{
-  func clear(color:sfColor)
-  func draw(drawable:Drawable)
+import swsfml_system
+import swsfml_window
+public class Keyboard{
+  public class func isKeyPressed(code:sfKeyCode)->Bool{
+    return Bool(NSNumber(int:sfKeyboard_isKeyPressed(code)))
+  }
 }
