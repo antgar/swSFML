@@ -27,9 +27,10 @@ enum MusicError : ErrorProtocol {
   case FileNotExist
 }
 
-public class Music {
+public class Music : SoundStream {
 
   private var music : OpaquePointer = nil
+
 
   public init(path: String) throws{
     music = sfMusic_createFromFile(path)
@@ -48,43 +49,71 @@ public class Music {
     sfMusic_stop(music)
   }
 
-  public func getChannelCount() -> Int {
-    return Int(sfMusic_getChannelCount(music))
+  public var channel: Int {
+    get {
+      return Int(sfMusic_getChannelCount(music))
+    }
   }
-
-  public func getSampleRate() -> Int {
-    return Int(sfMusic_getSampleRate(music))
+  public var sampleRate: Int {
+    get {
+      Int(sfMusic_getSampleRate(music))
+    }
   }
-
-  public func setPitch(pitch: Float) {
-    sfMusic_setPitch(music, pitch)
-  }
-
-  public func setVolume(volume: Float) {
-    sfMusic_setVolume(music, volume)
-  }
-
-  public func setRelativeToListener(pos: Bool) {
-    if (pos) {
-      sfMusic_setRelativeToListener(music, sfTrue)
-    } else {
-      sfMusic_setRelativeToListener(music, sfFalse)
+  public var pitch: Float {
+    set {
+      sfMusic_setPitch(music, newValue)
+    }
+    get {
+      return Float(sfMusic_getPitch(music))
     }
   }
 
-  public func setLoop(loop: Bool) {
-    if (loop) {
-      sfMusic_setLoop(music, sfTrue)
-    } else {
-      sfMusic_setLoop(music, sfFalse)
+  public var volume: Float {
+    set {
+      sfMusic_setVolume(music, newValue)
+    }
+    get {
+      return Float(sfMusic_getVolume(music))
     }
   }
 
-  public func getLoop() -> Bool {
-    if (sfMusic_getLoop(music) == sfTrue) {
-      return true
-    } else {
-      return false
+  public var relativeToListener: Bool {
+    set {
+      if (newValue == true) {
+        sfMusic_setRelativeToListener(music, sfTrue)
+      } else {
+        sfMusic_setRelativeToListener(music, sfFalse)
+      }
+    }
+    get {
+      if (sfMusic_isRelativeToListener(music) == sfTrue) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+
+  public var loop: Bool {
+    set {
+      if (newValue == true) {
+        sfMusic_setLoop(music, sfTrue)
+      } else {
+        sfMusic_setLoop(music, sfFalse)
+      }
+    }
+    get {
+      if (sfMusic_getLoop(music) == sfTrue) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
+  
+  public var status: sfSoundStatus {
+    get {
+      return sfMusic_getStatus(music)
     }
   }
 
