@@ -88,6 +88,9 @@ public class swRenderWindow:RenderTarget{
      if let draw = drawable as? ShapeProtocol{
       sfRenderWindow_drawShape(window,draw.shape,nil)
      }
+     else if let draw = drawable as? Text{
+       sfRenderWindow_drawText(window,draw.text,nil)
+     }
    }
    deinit{
      sfWindow_destroy(window)
