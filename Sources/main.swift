@@ -1,18 +1,17 @@
 import swsfml_graphics
+
 let window = swRenderWindow(title:"Test",width:800,height:800)
-let music: Music?
 var circle = CircleShape(radius:30,points:3)
 circle.fillColor = sfColor.greenColor()
-do {
-    music = try Music(path:"../0477.ogg")
-    music!.setLoop(false)
-    music!.setVolume(0.3)
-    music!.play()
-  }
-  catch _ {
-    print("music is not loaded")
-  }
 
+let music: Music?
+
+do {
+  music = try Music(path:"0564.ogg")
+  music!.play()
+} catch _ {
+  print ("Error")
+}
 
 while window.isOpen(){
   window.keyPressed(){key in
