@@ -29,7 +29,11 @@ enum SoundBufferError : ErrorProtocol {
 
 public class SoundBuffer {
 
-  private var buffer : OpaquePointer = nil
+  public private(set) var buffer : OpaquePointer
+
+  public init(Buffer: OpaquePointer) {
+    self.buffer = Buffer
+  }
 
   public init(path: String) throws{
     buffer = sfSoundBuffer_createFromFile(path)

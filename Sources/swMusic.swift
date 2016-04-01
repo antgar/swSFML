@@ -27,11 +27,10 @@ enum MusicError : ErrorProtocol {
   case FileNotExist
 }
 
-public class Music : SoundStream {
+public class Music : SoundStream{
 
   public var music : OpaquePointer
   public var soundStream: OpaquePointer = nil
-
 
   public init(path: String) throws{
     music = sfMusic_createFromFile(path)
