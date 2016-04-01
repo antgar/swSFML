@@ -26,4 +26,5 @@ import swsfml_graphics
 
 public protocol RenderTarget{
   func clear(color:sfColor)
+  func draw(drawable:Drawable)
 }
