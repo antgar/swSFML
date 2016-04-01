@@ -58,7 +58,7 @@ extension SoundStream {
   }
   public var sampleRate: Int {
     get {
-      return sfSoundStream_getSampleRate(soundStream)
+      return Int(sfSoundStream_getSampleRate(soundStream))
     }
   }
   public var status: sfSoundStatus {

@@ -29,7 +29,8 @@ enum MusicError : ErrorProtocol {
 
 public class Music : SoundStream {
 
-  private var music : OpaquePointer = nil
+  public var music : OpaquePointer
+  public var soundStream: OpaquePointer = nil
 
 
   public init(path: String) throws{
@@ -56,7 +57,7 @@ public class Music : SoundStream {
   }
   public var sampleRate: Int {
     get {
-      Int(sfMusic_getSampleRate(music))
+      return Int(sfMusic_getSampleRate(music))
     }
   }
   public var pitch: Float {
@@ -110,7 +111,7 @@ public class Music : SoundStream {
       }
     }
   }
-  
+
   public var status: sfSoundStatus {
     get {
       return sfMusic_getStatus(music)
