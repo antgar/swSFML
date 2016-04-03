@@ -21,40 +21,47 @@
 // OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 // WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-import swsfml_graphics
+import swsfml_system
 
-public extension sfColor{
-  public static func blackColor()->sfColor{
-    return sfBlack
+public extension sfTime{
+  var seconds : Float{
+    get{
+      return sfTime_asSeconds(self)
+    }
   }
-  public static func whiteColor()->sfColor{
-    return sfWhite
+  var milliseconds : Int {
+    return Int(sfTime_asMilliseconds(self))
   }
-  public static func greenColor()->sfColor{
-    return sfGreen
+
+  var microseconds : Int {
+    return Int(sfTime_asMicroseconds(self))
   }
-  public static func redColor()->sfColor{
-    return sfRed
+
+  init(seconds:Float){
+      self = sfSeconds(seconds)
   }
-  public static func blueColor()->sfColor{
-    return sfBlue
+  init(milliseconds:Int){
+    self = sfMilliseconds(Int32(milliseconds))
   }
-  public static func yellowColor()->sfColor{
-    return sfBlue
+  init(microseconds:Int){
+    self = sfMicroseconds(Int64(microseconds))
   }
-  public static func magentaColor()->sfColor{
-    return sfMagenta
+}
+public class Clock{
+  private var clock : OpaquePointer
+
+   init(){
+    clock = sfClock_create()
   }
-  public static func cyanColor()->sfColor{
-    return sfCyan
+
+  public func getElapsedTime()->sfTime{
+    return sfClock_getElapsedTime(clock)
   }
-  public static func transparentColor()->sfColor{
-    return sfTransparent
+  
+  public func restart()->sfTime{
+    return sfClock_restart(clock)
   }
-  public init(r:Int,g:Int,b:Int){
-    self.r = UInt8(r)
-    self.g = UInt8(g)
-    self.b = UInt8(b)
-    self.a = 255
+  deinit{
+    sfClock_destroy(clock)
   }
 }
