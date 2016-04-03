@@ -26,6 +26,12 @@ ball.outlineThickness = 3
 ball.outlineColor = sfColor.blackColor()
 ball.fillColor = sfColor(r:200,g:100,b:100)
 ball.origin = (ballRadius / 2, ballRadius / 2)
+
+let font = try! Font(file:"sansation.ttf")
+let pauseMessage = Text(string:"Welcome to swFML Pong\n Press space to start the game",font:font)
+pauseMessage.position = (170.0, 150.0)
+pauseMessage.color = sfColor.whiteColor()
+pauseMessage.characterSize = 30
 // let music: Music?
 //
 // do {
@@ -67,6 +73,9 @@ while window.isOpen(){
     window.draw(leftPaddle)
     window.draw(rightPaddle)
     window.draw(ball)
+  }
+  else{
+    window.draw(pauseMessage)
   }
   window.display()
 }
