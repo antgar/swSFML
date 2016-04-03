@@ -57,6 +57,9 @@ public extension sfEvent{
     return isKeyPressed && key.code == sfKeyLeft
   }
 
+  public var isKeySpace : Bool {
+    return isKeyPressed && key.code == sfKeySpace
+  }
   public var isMouseButtonPressed : Bool {
     return type == sfEvtMouseButtonPressed
   }

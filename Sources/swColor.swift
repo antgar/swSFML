@@ -51,4 +51,10 @@ public extension sfColor{
   public static func transparentColor()->sfColor{
     return sfTransparent
   }
+  public init(r:Int,g:Int,b:Int){
+    self.r = UInt8(r)
+    self.g = UInt8(g)
+    self.b = UInt8(b)
+    self.a = 255
+  }
 }
