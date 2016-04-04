@@ -1,6 +1,6 @@
 #swSwift 
 [![Swift 3.0](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift/)
-[![Platform OSX | Linux](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)]
+[![Platform OSX | Linux](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)
 The SFML graphic library for Swift !
 
 ## Installation
