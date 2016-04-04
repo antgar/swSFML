@@ -120,4 +120,5 @@ public class Text:Transformable,Drawable{
       let vector = sfVector2f(x:factorX,y:factorY)
       sfText_scale(text,vector)
   }
+  public func draw(target:RenderTarget){}
 }

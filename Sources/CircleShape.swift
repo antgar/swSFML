@@ -83,7 +83,7 @@ public class CircleShape:ShapeProtocol{
       sfCircleShape_setOutlineThickness(shape,newValue)
     }
   }
-  
+
    init(radius:Float){
      shape = sfCircleShape_create()
      sfCircleShape_setRadius(shape,radius)
@@ -113,4 +113,5 @@ public class CircleShape:ShapeProtocol{
     let vector = sfVector2f(x:factorX,y:factorY)
     sfCircleShape_scale(shape,vector)
   }
+  public func draw(target:RenderTarget){}
 }

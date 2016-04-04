@@ -24,5 +24,5 @@
 import Foundation
 
 public protocol Drawable{
-
+  func draw(target:RenderTarget)
 }

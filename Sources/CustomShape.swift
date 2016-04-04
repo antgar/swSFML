@@ -15,4 +15,5 @@ public class customShape:ShapeProtocol{
   public func getPoint(index:Int)->(Float,Float){
     return(1,1)
   }
+  public func draw(target:RenderTarget){}
 }

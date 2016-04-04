@@ -106,4 +106,5 @@ public class RectangleShape : ShapeProtocol{
     let vector = sfVector2f(x:factorX,y:factorY)
     sfRectangleShape_scale(shape,vector)
   }
+  public func draw(target:RenderTarget){}
 }
