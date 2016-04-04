@@ -94,6 +94,15 @@ public class Text:Transformable,Drawable{
       sfText_setCharacterSize(text,UInt32(newValue))
     }
   }
+
+  public var string:String{
+    get{
+      return String(sfText_getString(text))
+    }
+    set{
+      return sfText_setString(text,newValue)
+    }
+  }
   init(string:String,font:Font){
     text = sfText_create()
     sfText_setFont(text,font.font)

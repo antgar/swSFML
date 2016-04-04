@@ -1,13 +1,16 @@
 import swsfml_graphics
-
+import Foundation
 //SIMPLE PONG GAME TO TEST SWFML
 let pi = 3.14159
 let width = 800
 let height = 600
 let ballRadius:Float = 10.0
+let ballSpeed = 300.0
+var ballAngle = 0.0
 let paddleSize : (Float,Float) = (25.0,100.0)
+let paddleSpeed:Float = 400.0
 var isPlaying = false
-
+let clock = Clock()
 let window = swRenderWindow(title:"Test",width:width,height:height)
 
 let leftPaddle = RectangleShape(width:paddleSize.0 - 3,height:paddleSize.1 - 3)
@@ -62,10 +65,33 @@ while window.isOpen(){
     else{
       if key.isKeySpace && !isPlaying{
         isPlaying = true
+        clock.restart()
         leftPaddle.position = (10 + paddleSize.0 / 2, Float(height / 2))
         rightPaddle.position = (Float(width) - 10 - paddleSize.0 / 2,Float(height/2))
         ball.position = (Float(width) / 2, Float(height) / 2)
       }
+    }
+  }
+  if isPlaying {
+    let deltaTime = clock.restart().seconds
+    //move the player Paddle
+    if Keyboard.isKeyPressed(sfKeyUp){
+      leftPaddle.move(0,offsetY:-paddleSpeed * deltaTime)
+    }
+    else if Keyboard.isKeyPressed(sfKeyDown){
+      leftPaddle.move(0,offsetY:paddleSpeed * deltaTime)
+    }
+    //move the ball
+    let factor = Float(ballSpeed) * Float(deltaTime)
+    ball.move(Float(cos(ballAngle)) * factor, offsetY:Float(sin(ballAngle)) * factor)
+    //check Collisions
+    if ball.position.0 - ballRadius < 0{
+      isPlaying = false
+      pauseMessage.string = "You lost !"
+    }
+    if ball.position.0 - ballRadius > Float(width){
+      isPlaying = false
+      pauseMessage.string = "You win !"
     }
   }
   window.clear(sfColor(r:50,g:200,b:50))
