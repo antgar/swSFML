@@ -1,7 +1,7 @@
 #swSwift
 [![Swift 3.0](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift/)
 [![Platform OSX | Linux](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)
-[![CSFML | 2.3.1](https://img.shields.io/badge/CSFML-2.3.1-%231dd2af.svg)](https://img.shields.io/badge/CSFML-2.3.1-%231dd2af.svg)
+[![CSFML | 2.3](https://img.shields.io/badge/CSFML-2.3-%231dd2af.svg)](https://img.shields.io/badge/CSFML-2.3-%231dd2af.svg)
 
 
 The SFML graphic library for Swift !
