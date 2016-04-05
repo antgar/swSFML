@@ -1,4 +1,4 @@
-#swSwift 
+#swSwift
 [![Swift 3.0](https://img.shields.io/badge/swift-3.0-orange.svg)](https://developer.apple.com/swift/)
 [![Platform OSX | Linux](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)](https://img.shields.io/badge/Platform-OSX%20%7C%20Linux-lightgrey.svg)
 
@@ -6,7 +6,7 @@ The SFML graphic library for Swift !
 
 ## Installation
 
-1. Install Swift. Go to <a href=”http://swift.org”>swift.org</a> and follow the instructions in the download section
+1. Install Swift. Go to [swift.org](http://swift.org) and follow the instructions in the download section
 2. Download th CSFML library `sudo apt-get install libcsfml-dev`
 
 ## Usage
@@ -22,10 +22,10 @@ Empty
 
 ## History
 
-Project started on March 28th 2016. 
+Project started on March 28th 2016.
 
 ## Credits
 
-Team member : 
-- <a href=”http://github.com/antgar>Antoine Garcia</a>
-- <a href=”http://github.com/charvoa>Nicolas Charvoz</a>
+Team member :
+- [Antoine Garcia](http://github.com/antgar)
+- [Nicolas Charvoz](http://github.com/charvoa)
